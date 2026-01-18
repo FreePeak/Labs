@@ -1,7 +1,10 @@
-baseURL = 'https://USERNAME.github.io/REPONAME/'
+baseURL = 'https://FreePeak.github.io/Labs/'
 languageCode = 'vi'
 title = 'My Blog'
 theme = 'PaperMod'
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
 
 [params]
   ShowReadingTime = true
