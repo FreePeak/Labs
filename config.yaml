@@ -69,9 +69,9 @@ params:
     - name: github
       url: "https://github.com/FreePeak"
     - name: twitter
-      url: "https://twitter.com/FreePeak"
+      url: "https://x.com/linhdmn"
     - name: linkedin
-      url: "https://linkedin.com/company/freepeak"
+      url: "https://www.linkedin.com/in/linhdmn/"
     - name: rss
       url: "/index.xml"
 
