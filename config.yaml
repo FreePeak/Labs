@@ -1,4 +1,4 @@
-baseURL: "https://FreePeak.github.io/Labs/"
+baseURL: "https://FreePeak.github.io/"
 title: FreePeak Labs
 languageCode: vi
 theme: PaperMod
@@ -27,7 +27,7 @@ params:
   description: "Exploring AI, Development, and Technology"
   keywords: [Blog, AI, Development, Technology, FreePeak]
   author: FreePeak Labs
-  images: ["https://FreePeak.github.io/Labs/images/freepeak-labs-cover.png"]
+  images: ["https://FreePeak.github.io/images/freepeak-labs-cover.png"]
   DateFormat: "January 2, 2006"
   defaultTheme: auto
   disableThemeToggle: false
