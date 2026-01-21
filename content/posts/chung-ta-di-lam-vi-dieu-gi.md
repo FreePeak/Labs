@@ -238,32 +238,6 @@ Chịu đựng giỏi hơn chưa chắc là giải thoát.
 Giải thoát không phải là thắng.
 Giải thoát là biết lúc nào không cần đánh nữa.
 
-## Bài thực hành “reset 1 ngày” (nhẹ, hợp người đi làm)
-
-Nếu bạn muốn một bài thực hành cụ thể (không cần thần thánh hóa), tôi gợi ý một ngày như
-thế này.
-
-Buổi sáng (20 phút):
-
-- Viết “Anti-vision”: Nếu 5 năm nữa vẫn sống như hôm nay, một ngày thứ Ba của mình trông
-  ra sao? Mình mệt ở đâu? Mình cay ở đâu? Mình đang tránh điều gì?
-
-Ban ngày (3 nhắc giờ là đủ):
-
-- “Mình đang tránh né điều gì bằng việc đang làm?”
-- “Mình đang tiến về cuộc đời mình ghét hay cuộc đời mình muốn?”
-- “Mình đang đổi sự sống động lấy sự an toàn ở đâu?”
-
-Buổi tối (15 phút):
-
-- 1 câu: “Tôi từ chối trở thành…”
-- 1 câu: “Tôi đang xây một đời sống mà…”
-- Ngày mai làm 2 việc nhỏ, càng nhỏ càng tốt, nhưng là việc của người bạn muốn trở thành.
-
-Phật pháp gọi đó là quay về hiện tại.
-Tâm lý học gọi đó là phá vòng lặp.
-Tôi gọi đó là: cho mình một cơ hội để sống khác.
-
 ## Kết
 
 Thông báo lương vẫn sẽ rung.
