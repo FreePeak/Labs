@@ -118,14 +118,80 @@ Sử dụng **Cert-Manager** kết hợp với Let's Encrypt để tự động 
 
 Trong quá trình vận hành Kong trên GKE cho các hệ thống lớn, đây là những "chiến trường" mà chúng tôi đã đi qua:
 
-1.  **DB-less Mode là chân ái:**
-    Với K8s, chúng tôi khuyến khích dùng Kong ở chế độ **DB-less** (sử dụng Declarative Config lưu trong Memory thay vì Postgres). Điều này giúp loại bỏ điểm chết (SPOF) là Database, giúp Kong khởi động nhanh hơn và dễ scale hơn.
+1.  **DB-less Mode không phải lúc nào cũng là “best practice”:**
+    DB-less có thể rất phù hợp với GitOps và triển khai bất biến (immutable deployments), nhưng nếu cấu hình không đúng (không có fallback `declarative_config`, không persist LMDB cache, chỉ chạy 1 replica), bạn có thể gặp rủi ro mất cấu hình sau sự cố hoặc khi pod restart. Hãy chọn mode theo nhu cầu (GitOps vs runtime changes vs enterprise scale), không nên mặc định “DB-less là chân ái” cho mọi bài toán.
 
 2.  **Cẩn thận với Health Checks:**
     Cấu hình Liveness và Readiness Probe cho Kong rất quan trọng. Nếu cấu hình sai, K8s sẽ restart Kong liên tục khi traffic tăng đột biến (do Kong xử lý chậm lại), gây ra thảm họa dây chuyền.
 
 3.  **Plugin Ordering:**
     Thứ tự chạy của các Plugin rất quan trọng (ví dụ: Rate Limit phải chạy *trước* hay *sau* Auth?). Hãy nắm vững "Priority" của từng plugin để tránh các lỗ hổng logic.
+
+### Best Practices theo use case (DB-less / PostgreSQL / Hybrid)
+
+Dưới đây là khung tham chiếu để chọn và vận hành Kong an toàn trong Production. Mục tiêu là: nêu rõ trade-off, giảm rủi ro mất cấu hình, và phù hợp cách deploy của team.
+
+#### 1) DB-less Mode (phù hợp GitOps / setup đơn giản)
+
+`kong.conf` essentials:
+
+```conf
+database = off
+declarative_config = /kong-config/kong.yaml  # ALWAYS set a fallback
+lmdb_map_size = 2048m  # tune based on config size
+```
+
+Gợi ý vận hành:
+
+*   Lưu declarative config trong Git: version control cho `kong.yaml` (review/audit/rollback).
+*   Luôn set `declarative_config`: làm “phao cứu sinh” nếu LMDB cache bị mất.
+*   Persist LMDB bằng PersistentVolume: giúp survive pod restarts (đặc biệt khi bạn muốn khởi động ổn định, hạn chế phụ thuộc cache tạm).
+*   Validate trước khi deploy: `kong config parse kong.yaml` hoặc `deck gateway validate`.
+*   Chạy nhiều replica: không phụ thuộc 1 node duy nhất.
+
+Ví dụ Kubernetes (persist LMDB + mount declarative config):
+
+```yaml
+volumes:
+  - name: kong-cache
+    persistentVolumeClaim:
+      claimName: kong-lmdb-pvc  # Persist dbless.lmdb
+  - name: kong-config
+    configMap:
+      name: kong-declarative-config  # Fallback config
+```
+
+#### 2) PostgreSQL Mode (phù hợp Enterprise / cần thay đổi runtime qua API/UI)
+
+*   HA PostgreSQL: Patroni, CrunchyData, hoặc managed service.
+*   Read replicas (nếu cần): dùng read-only endpoint/host (tùy theo version/feature set) để offload reads.
+*   Connection pooler: PgBouncer khi có nhiều Kong nodes.
+*   Backup định kỳ + PITR (point-in-time recovery).
+*   Tune cache: `db_update_frequency`, `db_cache_ttl` (cần test theo traffic thực tế).
+
+#### 3) Hybrid Mode (best of both)
+
+*   Control Plane (có DB) + Data Planes (DB-less):
+    *   CP quản lý config tập trung (PostgreSQL).
+    *   DPs nhẹ, cache config từ CP.
+    *   DPs có thể tiếp tục chạy khi CP outage nhờ LMDB cache local (tùy cách deploy).
+
+#### Decision framework
+
+| Nếu bạn cần... | Nên dùng |
+| --- | --- |
+| GitOps, immutable deployments | DB-less |
+| Thay đổi config runtime qua API/UI | PostgreSQL |
+| Large scale, enterprise features | PostgreSQL hoac Hybrid |
+| Minimal ops overhead | DB-less |
+| Cluster-wide rate limiting (phụ thuộc DB) | PostgreSQL |
+| Vừa muốn central control vừa muốn nodes nhẹ | Hybrid |
+
+#### TL;DR
+
+*   DB-less an toàn nếu cấu hình đúng: persist LMDB + set `declarative_config` fallback + nhiều replicas.
+*   Nếu thiếu các safeguard này: đúng, cấu hình có thể bị mất sau crash/restart.
+*   Production lớn: ưu tiên Hybrid, hoặc PostgreSQL nếu cần runtime changes và các nhu cầu enterprise.
 
 ![Lessons Learned](/images/kong-blog/section4-lessons.svg)
 
