@@ -2,7 +2,7 @@
 title: "Trải nghiệm sử dụng AI Agent lập trình viên 2026"
 date: 2026-01-18T10:00:00+07:00
 draft: false
-author: "FreePeak Labs"
+author: "Free Peak"
 tags: ["AI", "Developer Tools", "Experience", "Review"]
 categories: ["Technology", "AI"]
 description: "Chia sẻ trải nghiệm thực tế về các AI coding agents: Cursor, Copilot, Claude Code, và nhiều công cụ khác - ưu điểm, nhược điểm, và cách chọn tool phù hợp cho từng bài toán."

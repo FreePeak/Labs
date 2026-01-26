@@ -2,7 +2,7 @@
 title: "Kiến trúc & Best Practices: Sử dụng Kong Open Source làm API Gateway trên GKE"
 date: 2026-01-19T10:00:00+07:00
 draft: false
-author: "FreePeak Labs"
+author: "Free Peak"
 tags: ["Kong", "Kubernetes", "GCP", "API Gateway", "Ingress", "DevOps"]
 categories: ["Architecture", "DevOps"]
 description: "Hướng dẫn chuyên sâu về kiến trúc và các thực tiễn tốt nhất (best practices) khi triển khai Kong Open Source làm API Gateway và Ingress Controller trên Google Kubernetes Engine (GKE)."

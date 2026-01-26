@@ -23,10 +23,10 @@ outputs:
 
 params:
   env: production
-  title: FreePeak Labs
+  title: Free Peak
   description: "Exploring AI, Development, and Technology"
   keywords: [Blog, AI, Development, Technology, FreePeak]
-  author: FreePeak Labs
+  author: Free Peak
   images: ["https://FreePeak.github.io/images/freepeak-labs-cover.png"]
   DateFormat: "January 2, 2006"
   defaultTheme: auto
@@ -54,13 +54,13 @@ params:
     favicon: /favicon.svg
 
   label:
-    text: "FreePeak Labs"
+    text: "Free Peak"
     icon: /apple-touch-icon.png
     iconHeight: 35
 
   # home-info mode
   homeInfoParams:
-    Title: "Welcome to FreePeak Labs"
+    Title: "Welcome to Free Peak"
     Content: >
       Discover the world of AI, software development, and technology.
 

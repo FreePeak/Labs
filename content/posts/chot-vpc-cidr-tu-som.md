@@ -2,7 +2,7 @@
 title: "Chốt VPC CIDR Từ Sớm: Quyết Định Nhỏ Giúp Tránh Đập Đi Làm Lại"
 date: 2026-01-19T10:00:00+07:00
 draft: false
-author: "FreePeak Labs"
+author: "Free Peak"
 tags: ["aws", "iac", "terragrunt", "networking", "eks"]
 categories: ["Architecture", "DevOps"]
 description: "Tại sao việc chọn CIDR cho VPC từ sớm lại quan trọng? Bài viết chia sẻ kinh nghiệm thực tế về cách quyết định CIDR có thể ảnh hưởng đến khả năng mở rộng hạ tầng AWS và cách quản trị CIDR hiệu quả với Terragrunt."

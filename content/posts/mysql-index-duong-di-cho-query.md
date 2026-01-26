@@ -2,7 +2,7 @@
 title: "MySQL Index: Đường Đi Cho Query (Viết Cho Dev Backend)"
 date: 2026-01-20T00:00:00+07:00
 draft: false
-author: "FreePeak Labs"
+author: "Free Peak"
 tags: ["mysql", "database", "index", "performance", "backend"]
 categories: ["Database", "Backend"]
 description: "Index không phải bùa tăng tốc. Nó là đường đi. Bài viết giải thích cách MySQL dùng index theo góc nhìn dev backend: thiết kế index theo query thật, anti-pattern hay gặp, và checklist áp dụng."

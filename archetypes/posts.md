@@ -2,7 +2,7 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 draft: true
-author: "FreePeak Labs"
+author: "Free Peak"
 tags: []
 categories: []
 description: ""

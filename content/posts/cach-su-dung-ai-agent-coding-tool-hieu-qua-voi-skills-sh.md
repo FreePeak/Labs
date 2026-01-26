@@ -2,7 +2,7 @@
 title: "Cách Sử Dụng AI Agent Coding Tool Hiệu Quả Với Skills.sh"
 date: 2026-01-21T10:00:00+07:00
 draft: false
-author: "FreePeak Labs"
+author: "Free Peak"
 tags: ["ai", "coding", "productivity", "skills-sh"]
 categories: ["engineering"]
 description: "Hướng dẫn thực tế để tận dụng AI agent coding tools và hệ sinh thái Skills.sh"

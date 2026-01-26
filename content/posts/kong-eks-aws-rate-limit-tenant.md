@@ -2,7 +2,7 @@
 title: "Kong DB-less trên AWS EKS: Rate Limiting theo Tenant, và vì sao ALB Ingress không đủ"
 date: 2026-01-19T10:00:00+07:00
 draft: false
-author: "FreePeak Labs"
+author: "Free Peak"
 tags: ["Kong", "AWS", "EKS", "API Gateway", "Rate Limiting", "ALB", "WAF", "GitOps"]
 categories: ["Architecture", "DevOps"]
 description: "Một góc nhìn thực dụng về việc triển khai Kong DB-less trên AWS EKS để giải quyết bài toán rate limiting theo tenant: vì sao ALB Ingress/WAF/Lambda nhanh chóng thành 'băng keo', và best practices để vận hành Kong gọn, an toàn, dễ scale."
